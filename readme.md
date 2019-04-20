@@ -10,7 +10,7 @@ Script update multiple wp sites using wp-cli.
 
     cp config.sample.sh config.sh
 
-And edit config.sh. Put your wp project paths.
+And edit `config.sh`. Put your wp project paths to `config.sh`.
 
 ## Run
 
