@@ -1,7 +1,7 @@
 #!/bin/bash
 which wp
 if [ $? -gt 0 ]; then
-	echo "wp-cli를 설치하고 다시 실행해 주세요. wp 명령어로 실행하게 설정돼 있어야 합니다."
+	echo "Install wp-cli and re-run. wp-cli command must be wp."
 	exit 1
 fi
 
@@ -14,7 +14,7 @@ do
 	if [ $? -eq 0 ]; then
 		echo -e "\n=== ${dir} ===\n"
 	else
-		echo -e "\n=== ${dir}은 없습니다 ===\n"
+		echo -e "\n=== No ${dir} ===\n"
 		continue
 	fi
 	
@@ -22,7 +22,7 @@ do
 	git status
 	is_modified=$(git status | wc -l | tr -d '[:space:]')
 	if [ $is_modified -gt 4 ]; then
-		echo -e "\n${dir}에 변경된 파일이 있으므로 업데이트하지 않습니다.\n"
+		echo -e "\n${dir} has modified files. Do not update.\n"
 		continue;
 	fi
 
@@ -35,7 +35,7 @@ do
 
 	is_updated=$(git status | wc -l | tr -d '[:space:]')
 	if [ $is_updated -gt 4 ]; then
-		echo -e "\n${dir}: 변경된 파일을 커밋하고 푸시합니다.\n\n"
+		echo -e "\n${dir}: It will add, commit, push updated files.\n\n"
 		git add .
 		git commit -m 'wp update'
 		git push
