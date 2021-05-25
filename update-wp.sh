@@ -37,7 +37,7 @@ do
 	if [ $is_updated -gt 4 ]; then
 		echo -e "\n${dir}: It will add, commit, push updated files.\n\n"
 		git add .
-		git commit -m 'wp update'
+		git commit -m "Update WP Projects has updated ${dir}."
 		git push
 	fi
 done
